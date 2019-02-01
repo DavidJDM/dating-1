@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/328/dating/styles/bootstrap.min.css">
+    <title>Personal Information</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <form class="col form-control col-md-6" action="personal" method="post">
+                <h1>Personal Information</h1>
+                <div class="form-group">
+                    <div class="form-text form-row">
+                        <label>First Name
+                            <input type="text" name="fname" id="fname">
+                        </label>
+                    </div>
+                    <div class="form-text form-row">
+                        <label>Last Name
+                            <input class="form-row form-text" type="text" name="lname" id="lname">
+                        </label>
+                    </div>
+                    <div class="form-group form-row">
+                        <label>Age
+                            <input type="number" name="age" id="age">
+                        </label>
+                    </div>
+                    <div class="form-group form-row">
+                        <label>Gender
+                            <input type="radio" name="gender" id="genderM" value="male"> Male
+                            <input type="radio" name="gender" id="genderF" value="female"> Female
+                            <input type="radio" name="gender" id="genderO" value="other"> Other
+                        </label>
+                    </div>
+                    <div class="form-group form-row">
+                        <label>Phone Number
+                            <input type="tel" name="phone" id="phone">
+                        </label>
+                    </div>
+                </div>
+                <div class="col col-md-6">
+                    <div class="badge-light border-primary">
+                        <p>Note: All information entered is protected by our <span class="text-info">privacy policy</span>. Profile
+                            information can only be viewed by others with your permission</p>
+                    </div>
+                    <div>
+                        <a href="profile" class="btn btn-info">Next ></a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
