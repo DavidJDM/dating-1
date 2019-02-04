@@ -26,29 +26,44 @@
                     </div>
                         <div class="form-group">
                             <label>First Name<br>
-                                <input class="form-control"  type="text" name="fname" id="fname" >
+                                <input class="form-control" size="60" type="text" name="fname" id="fname" value="{{ @fname }}">
                             </label>
                         </div>
+                    <div class="text-danger">
+                        <check if="{{ isset(@errors['lname']) }}">
+                            <p>{{ @errors['lname'] }}</p>
+                        </check>
+                    </div>
                         <div class="form-group">
                             <label class="col-form-label">Last Name
-                                <input class="form-control" type="text" name="lname" id="lname">
+                                <input class="form-control" size="60" type="text" name="lname" id="lname" value="{{ @lname }}">
                             </label>
                         </div>
+                    <div class="text-danger">
+                        <check if="{{ isset(@errors['age']) }}">
+                            <p>{{ @errors['age'] }}</p>
+                        </check>
+                    </div>
                         <div class="form-group">
                             <label class="col-form-label">Age
-                                <input class="form-control"  type="number" name="age" id="age">
+                                <input class="form-control"  type="number" name="age" id="age" value="{{ @age }}">
                             </label>
                         </div>
                         <div class="custom-radio">
                             <label class="col-form-label">Gender<br>
-                                <input class="mx-auto" type="radio" name="gender" id="genderM" value="male"> Male
-                                <input type="radio" name="gender" id="genderF" value="female"> Female
-                                <input type="radio" name="gender" id="genderO" value="other"> Other
+                                <input type="radio" name="gender" id="genderM" value="male"> Male
+                                <input class="ml-1" type="radio" name="gender" id="genderF" value="female"> Female
+                                <input class="ml-1" type="radio" name="gender" id="genderO" value="other"> Other
                             </label>
                         </div>
+                    <div class="text-danger">
+                        <check if="{{ isset(@errors['phone']) }}">
+                            <p>{{ @errors['phone'] }}</p>
+                        </check>
+                    </div>
                         <div class="form-group">
                             <label class="col-form-label">Phone Number
-                                <input class="form-control" size="60" type="tel" name="phone" id="phone">
+                                <input class="form-control" size="60" type="tel" name="phone" id="phone" value="{{ @phone }}">
                             </label>
                         </div>
 
@@ -59,7 +74,9 @@
                     <p>Note: All information entered is protected by our <span class="text-info">privacy policy</span>. Profile
                         information can only be viewed by others with your permission</p>
                 </div>
-
+                <div class="bottom-align-text">
+                    <input form="personal" type="submit" class="btn btn-info" value="Next >">
+                </div>
                 <input form="personal" type="submit" class="btn btn-info" value="Next >">
 
             </div>

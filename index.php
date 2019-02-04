@@ -47,7 +47,7 @@ $f3->route('GET|POST /personal', function($f3){
         if(validName($fname)){
 
             $_SESSION['fname'] = $fname;
-
+            $f3->set("fname", $fname);
 
         }else{
             $isValid = false;
@@ -56,15 +56,17 @@ $f3->route('GET|POST /personal', function($f3){
         if(validName($lname)){
 
             $_SESSION['lname'] = $lname;
+            $f3->set("lname", $lname);
 
         }else{
             $isValid = false;
-            $f3->set("errors['lname']", "Please enter a isValid name, no spaces, numbers, or special characters.");
+            $f3->set("errors['lname']", "Please enter a valid last name.");
         }
 
         if (validAge($age)) {
 
             $_SESSION['age'] = $age;
+            $f3->set("age", $age);
         }else{
 
             $isValid = false;
@@ -73,17 +75,27 @@ $f3->route('GET|POST /personal', function($f3){
 
         if (validPhone($phone)) {
             $_SESSION['phone'] = $phone;
+            $f3->set("phone", $phone);
         }else{
             $isValid = false;
-            //$f3->set("errors['phone'}", "Please enter a isValid phone number.");
+            $f3->set("errors['phone']", "Please enter a isValid phone number.");
         }
 
-        if(empty($_POST['gender'])) {
-            $_SESSION['gender'] = "N/A";
-            //$f3->set("errors['gender'}", "Please choose a gender.");
+        if(!empty($gender)){
+
+            if($gender == "male" OR $gender == "female" OR $gender == "other") {
+                $_SESSION['gender'] = $gender;
+                $f3->set("gender", $gender);
+            }else {
+                $isValid = false;
+                $f3->set("errors['gender']", "Please choose a gender.");
+            }
+
         }else{
-            $_SESSION['gender'] = $gender;
+
+            $_SESSION['gender'] = "N/A";
         }
+
         if($isValid){
 
             $f3->reroute('/profile');
@@ -107,7 +119,7 @@ $f3->route('GET|POST /profile', function($f3){
         $email = $_POST['email'];
         $state = $_POST['state'];
         $seeking = $_POST['seeking'];
-        //$bio = $_POST['bio'];
+
 
         if(validEmail($email)){
 
@@ -216,7 +228,7 @@ $f3->route('GET|POST /interests', function($f3){
 //Define a summary route
 $f3->route('GET|POST /summary', function($f3){
 
-    $f3->set('name',$_SESSION['name']);
+    $f3->set('name',$_SESSION['fname']." ".$_SESSION['lname']);
     $f3->set('gender', $_SESSION['gender']);
     $f3->set('age',$_SESSION['age']);
     $f3->set('phone', $_SESSION['phone']);
