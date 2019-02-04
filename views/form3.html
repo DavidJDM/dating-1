@@ -13,85 +13,46 @@
 <nav class="navbar navbar-light bg-light mb-2">
     <a class="navbar-brand" href="./">My Dating Website</a>
 </nav>
-<div class="container">
-    <div class="row">
-        <div class="col col-12">
-            <h2>Interests</h2>
-            <hr>
-            <form class="form-group" action="" method="post">
-
-                <fieldset>
+<div class="container border border-info">
+    <h2>Interests</h2>
+    <hr>
+    <div class="m-3">
+        <form class="form-group" action="" method="post">
+            <div class="row">
+                <div class="form-group">
                     <legend>In-door Interests</legend>
                     <repeat group="{{ @indoors }}" value="{{ @text=>@indoor }}">
 
                         <label>
-                            <input class="checkbox ml-5 mr-1" type="checkbox" value="{{ @indoor }}" name="indoor[]">{{ @indoor }}
+                            <input class="custom-checkbox ml-5 mr-1" type="checkbox" value="{{ @indoor }}" name="indoor[]">{{ @indoor }}
                         </label>
                     </repeat>
-                    <!--<label>
-                        <input type="checkbox" value="tv" name="indoor[]">&nbsp;tv
-                    </label>
-                    <label>
-                        <input type="checkbox" value="movies" name="indoor[]">&nbsp;movies
-                    </label>
-
-                    <label>
-                        <input type="checkbox" value="cooking" name="indoor[]">&nbsp;cooking
-                    </label>
-
-                    <label>
-                        <input type="checkbox" value="board_games" name="indoor[]">&nbsp;board games
-                    </label><br>
-                    <label>
-                        <input type="checkbox" value="puzzles" name="indoor[]">&nbsp;puzzles
-                    </label>
-                    <label>
-                        <input type="checkbox" value="reading" name="indoor[]">&nbsp;reading
-                    </label>
-
-                    <label>
-                        <input type="checkbox" value="playing_cards" name="indoor[]">&nbsp;playing cards
-                    </label><br>
-
-                    <label>
-                        <input type="checkbox" value="video-games" name="indoor[]">&nbsp;video games
-                    </label>
-                </fieldset>-->
-                <fieldset>
+                </div>
+            </div>
+            <div class="row">
+                <div class="row form-group">
                     <legend>Out-door Interests</legend>
                     <repeat group="{{ @outdoors }}" value="{{ @text=>@outdoor }}">
 
                         <label>
-                            <input type="checkbox" value="{{ @outdoor }}" name="outdoor[]">{{ @outdoor }}
+                            <input class="custom-checkbox ml-5 mr-1" type="checkbox" value="{{ @outdoor }}" name="outdoor[]">{{ @outdoor }}
                         </label>
                     </repeat>
-                    <!--<label>
-                        <input type="checkbox" value="hiking" name="outdoor[]">&nbsp;hiking
-                    </label>
-                    <label>
-                        <input type="checkbox" value="biking" name="outdoor[]">&nbsp;biking
-                    </label>
 
-                    <label>
-                        <input type="checkbox" value="swimming" name="outdoor[]">&nbsp;swimming
-                    </label>
+                </div>
+            </div>
 
-                    <label>
-                        <input type="checkbox" value="collecting" name="outdoor[]">&nbsp;collecting
-                    </label><br>
-                    <label>
-                        <input type="checkbox" value="walking" name="outdoor[]">&nbsp;walking
-                    </label>
-                    <label>
-                        <input type="checkbox" value="climbing" name="outdoor[]">&nbsp;climbing
-                    </label>-->
-                </fieldset>
+            <div class="row">
                 <input type="submit" class="btn btn-info" value="Next >">
-            </form>
-        </div>
+            </div>
 
-
+        </form>
     </div>
+
+
+
+
+
 </div>
 
 </body>
