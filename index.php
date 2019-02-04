@@ -31,7 +31,7 @@ $f3->route('GET|POST /personal', function($f3){
 
 
     // reset session array
-    //$_SESSION = array();
+    $_SESSION = array();
 
     if(!empty($_POST)){
 
@@ -103,7 +103,7 @@ $f3->route('GET|POST /personal', function($f3){
 
     }
 
-    print_r($_POST);
+    //print_r($_POST);
     $view = new Template();
     echo $view->render('views/form1.html');
 });
@@ -119,52 +119,59 @@ $f3->route('GET|POST /profile', function($f3){
         $email = $_POST['email'];
         $state = $_POST['state'];
         $seeking = $_POST['seeking'];
-
+        $biography = $_POST['biography'];
 
         if(validEmail($email)){
 
             $_SESSION['email'] = $email;
+            $f3->set("email", $email);
 
         }else{
             $isValid = false;
-            //$f3->set("errors['email'}", "Please enter a email address.");
+            $f3->set("errors['email']", "Please enter a email address.");
         }
 
         if (!empty($state)) {
             if(validState($state)){
                 $_SESSION['state'] = $state;
+                $f3->set("state", $state);
             }else{
+                $f3->set("errors['state']", "Please provide a valid state");
                 $isValid = false;
             }
 
         }else{
             $_SESSION['state'] = "";
-            //$f3->set("errors['state'}", "This site is intended for people living in the U.S.
-            // Please provide a valid state");
+
         }
 
-        if (!empty($_POST['bio'])) {
-            $_SESSION['bio'] = $_POST['bio'];
-            //$_SESSION['bio'] = "Mysterious";
+        if (!empty($_POST['biography'])) {
+
+            $_SESSION['biography'] = $biography;
+            $f3->set("biography", $biography);
 
         }else{
-            $_SESSION['bio'] = "Mysterious";
-            //$_SESSION['bio'] = $_POST['bio'];
-            //$f3->set("errors['phone'}", "Please enter a isValid phone number.");
+            $_SESSION['biography'] = "Mysterious";
         }
 
         if(!empty($_POST['seeking'])) {
             //$_SESSION['seeking'] = "N/A";
-            $_SESSION['seeking'] = $seeking;
-            //$f3->set("errors['seeking'}", "Please choose the gender(s) you are seeking.");
+            if($seeking == "male" OR $seeking == "female" OR $seeking == "both"){
+                $_SESSION['seeking'] = $seeking;
+                $f3->set("seeking", $seeking);
+            }else{
+                $isValid = false;
+                $f3->set("errors['seeking'}", "Please choose a valid choice.");
+            }
         }else{
             $_SESSION['seeking'] = "N/A";
-            //$_SESSION['seeking'] = $seeking;
+
         }
         if($isValid){
+
             $f3->reroute('/interests');
         }
-        print_r($_SESSION);
+
 
 
     }
@@ -191,7 +198,7 @@ $f3->route('GET|POST /interests', function($f3){
                 }
                 else {
                     $isValid = false;
-                    //$f3->set("errors['indoor'}", "Please select valid indoor interests");
+                    $f3->set("errors['indoor']", "Please select valid indoor interests");
                 }
             }
         }
@@ -206,7 +213,7 @@ $f3->route('GET|POST /interests', function($f3){
 
                 } else {
                     $isValid = false;
-                    //$f3->set("errors['outdoor'}", "Please select valid outdoor interests");
+                    $f3->set("errors['outdoor']", "Please select valid outdoor interests");
                 }
             }
         }
@@ -228,6 +235,7 @@ $f3->route('GET|POST /interests', function($f3){
 //Define a summary route
 $f3->route('GET|POST /summary', function($f3){
 
+
     $f3->set('name',$_SESSION['fname']." ".$_SESSION['lname']);
     $f3->set('gender', $_SESSION['gender']);
     $f3->set('age',$_SESSION['age']);
@@ -235,7 +243,7 @@ $f3->route('GET|POST /summary', function($f3){
     $f3->set('email', $_SESSION['email']);
     $f3->set('state', $_SESSION['state']);
     $f3->set('seeking', $_SESSION['seeking']);
-    $f3->set('bio', $_SESSION['bio']);
+    $f3->set('biography', $_SESSION['biography']);
     $f3->set('interests',$_SESSION['interests']);
 
     $view = new Template();

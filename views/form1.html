@@ -14,11 +14,13 @@
         <a class="navbar-brand" href="./">My Dating Website</a>
     </nav>
     <div class="container border border-info">
+        <h1>Personal Information</h1>
+        <hr>
         <div class="row  m-3">
+
             <div class="col">
                 <form action="" method="post" id="personal">
-                    <h1>Personal Information</h1>
-                    <hr>
+
                     <div class="text-danger">
                         <check if="{{ isset(@errors['fname']) }}">
                             <p>{{ @errors['fname'] }}</p>
@@ -74,9 +76,7 @@
                     <p>Note: All information entered is protected by our <span class="text-info">privacy policy</span>. Profile
                         information can only be viewed by others with your permission</p>
                 </div>
-                <div class="bottom-align-text">
-                    <input form="personal" type="submit" class="btn btn-info" value="Next >">
-                </div>
+
                 <input form="personal" type="submit" class="btn btn-info" value="Next >">
 
             </div>
