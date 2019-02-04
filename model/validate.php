@@ -6,15 +6,12 @@
  * Time: 10:48 AM
  */
 
+include('valid-states.php');
 
 /**
  * @param string $name
  * @return boolean true if name is not empty and is alphabetic
  */
-
-include('valid-states.php');
-
-
 function validName($name){
     return $name != "" AND ctype_alpha($name);
 }
@@ -49,16 +46,18 @@ function validEmail($email){
 }
 
 function validState($state){
-    global $validStates;
-    return in_array($state, $validStates);
-}
 
-function validOutdoor($indoor){
     global $f3;
-    return in_array($indoor,$f3->get('indoors'));
+
+    return in_array($state, $f3->get('validStates'));
 }
 
-function validIndoor($outdoor){
+function validOutdoor($outdoor){
     global $f3;
     return in_array($outdoor,$f3->get('outdoors'));
+}
+
+function validIndoor($indoor){
+    global $f3;
+    return in_array($indoor,$f3->get('indoors'));
 }

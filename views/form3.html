@@ -18,10 +18,17 @@
         <div class="col col-12">
             <h2>Interests</h2>
             <hr>
-            <form action="" method="post">
+            <form class="form-group" action="" method="post">
+
                 <fieldset>
                     <legend>In-door Interests</legend>
-                    <label>
+                    <repeat group="{{ @indoors }}" value="{{ @text=>@indoor }}">
+
+                        <label>
+                            <input class="checkbox ml-5 mr-1" type="checkbox" value="{{ @indoor }}" name="indoor[]">{{ @indoor }}
+                        </label>
+                    </repeat>
+                    <!--<label>
                         <input type="checkbox" value="tv" name="indoor[]">&nbsp;tv
                     </label>
                     <label>
@@ -49,10 +56,16 @@
                     <label>
                         <input type="checkbox" value="video-games" name="indoor[]">&nbsp;video games
                     </label>
-                </fieldset>
+                </fieldset>-->
                 <fieldset>
                     <legend>Out-door Interests</legend>
-                    <label>
+                    <repeat group="{{ @outdoors }}" value="{{ @text=>@outdoor }}">
+
+                        <label>
+                            <input type="checkbox" value="{{ @outdoor }}" name="outdoor[]">{{ @outdoor }}
+                        </label>
+                    </repeat>
+                    <!--<label>
                         <input type="checkbox" value="hiking" name="outdoor[]">&nbsp;hiking
                     </label>
                     <label>
@@ -71,9 +84,9 @@
                     </label>
                     <label>
                         <input type="checkbox" value="climbing" name="outdoor[]">&nbsp;climbing
-                    </label>
+                    </label>-->
                 </fieldset>
-                <a href="summary" class="btn btn-info">Next ></a>
+                <input type="submit" class="btn btn-info" value="Next >">
             </form>
         </div>
 

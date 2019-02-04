@@ -10,57 +10,59 @@
     <title>Personal Information</title>
 </head>
 <body>
-
-    <div class="container">
-        <div class="row">
-            <form class="col form-control col-md-6" action="" method="post">
-                <h1>Personal Information</h1>
-                <div class="form-group">
-                    <div class="col-sm-3">
-                        <check if="{{ isset(@errors['name']) }}">
-                            <p>{{ @errors['name'] }}</p>
+    <nav class="navbar navbar-light bg-light mb-2">
+        <a class="navbar-brand" href="./">My Dating Website</a>
+    </nav>
+    <div class="container border border-info">
+        <div class="row  m-3">
+            <div class="col">
+                <form action="" method="post" id="personal">
+                    <h1>Personal Information</h1>
+                    <hr>
+                    <div class="text-danger">
+                        <check if="{{ isset(@errors['fname']) }}">
+                            <p>{{ @errors['fname'] }}</p>
                         </check>
+                    </div>
+                        <div class="form-group">
+                            <label>First Name<br>
+                                <input class="form-control"  type="text" name="fname" id="fname" >
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Last Name
+                                <input class="form-control" type="text" name="lname" id="lname">
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Age
+                                <input class="form-control"  type="number" name="age" id="age">
+                            </label>
+                        </div>
+                        <div class="custom-radio">
+                            <label class="col-form-label">Gender<br>
+                                <input class="mx-auto" type="radio" name="gender" id="genderM" value="male"> Male
+                                <input type="radio" name="gender" id="genderF" value="female"> Female
+                                <input type="radio" name="gender" id="genderO" value="other"> Other
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Phone Number
+                                <input class="form-control" size="60" type="tel" name="phone" id="phone">
+                            </label>
+                        </div>
 
-                    </div>
-                    <div class="form-text form-row">
-                        <label>First Name
-                            <input type="text" name="fname" id="fname">
-                        </label>
-                    </div>
-                    <div class="form-text form-row">
-                        <label>Last Name
-                            <input class="form-row form-text" type="text" name="lname" id="lname">
-                        </label>
-                    </div>
-                    <div class="form-group form-row">
-                        <label>Age
-                            <input type="number" name="age" id="age">
-                        </label>
-                    </div>
-                    <div class="form-group form-row">
-                        <label>Gender
-                            <input type="radio" name="gender" id="genderM" value="male"> Male
-                            <input type="radio" name="gender" id="genderF" value="female"> Female
-                            <input type="radio" name="gender" id="genderO" value="other"> Other
-                        </label>
-                    </div>
-                    <div class="form-group form-row">
-                        <label>Phone Number
-                            <input type="tel" name="phone" id="phone">
-                        </label>
-                    </div>
-                </div>
-                <div class="col col-md-6">
-                    <div class="badge-light border-primary">
-                        <p>Note: All information entered is protected by our <span class="text-info">privacy policy</span>. Profile
-                            information can only be viewed by others with your permission</p>
-                    </div>
-
-                    <input type="submit" class="btn btn-info" value="Next >">
-
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="badge-light">
+                    <p>Note: All information entered is protected by our <span class="text-info">privacy policy</span>. Profile
+                        information can only be viewed by others with your permission</p>
                 </div>
 
-            </form>
+                <input form="personal" type="submit" class="btn btn-info" value="Next >">
+
+            </div>
         </div>
 
     </div>

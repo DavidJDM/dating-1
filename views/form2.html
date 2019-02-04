@@ -24,12 +24,17 @@
                     </div>
                     <div>
                         <label>State
-                            <select name="state" id="state">
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
+                            <select class="dropdown" name="state" id="state">
+                                <repeat group="{{ @validStates }}" value="{{ @state }}">
+                                    <option value="{{ @state }}">{{ @state }}</option>
+                                </repeat>
+
+                                <!--<option value=""></option>
+                                <option value="Alabama">Alabama</option>
+                                <option value="Alaska">Alaska</option>
+                                <option value="Arizona">Arizona</option>
+                                <option value="Arkansas">Arkansas</option>
+                                <option value="California">California</option>
                                 <option value="CO">Colorado</option>
                                 <option value="CT">Connecticut</option>
                                 <option value="DE">Delaware</option>
@@ -75,7 +80,7 @@
                                 <option value="WA">Washington</option>
                                 <option value="WV">West Virginia</option>
                                 <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
+                                <option value="WY">Wyoming</option>-->
                             </select>
                         </label>
                     </div>
