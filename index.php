@@ -249,7 +249,7 @@ $f3->route('GET|POST /summary', function($f3){
     $view = new Template();
     echo $view->render('views/summary.html');
 
-    print_r($_SESSION);
+    //print_r($_SESSION);
 });
 
 //Run fat free
